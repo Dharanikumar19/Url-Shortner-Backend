@@ -9,7 +9,7 @@ const URL = "mongodb+srv://urlShortner:urlShortner@cluster0.bbiin.mongodb.net?re
 const secret = "jGa3BhjuS2Msg"
 app.use(express.json());
 app.use(cors({
-    origin: "*"
+    origin: "*",
 }))
 
 
