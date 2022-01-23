@@ -53,7 +53,7 @@ app.post("/login", async (req, res) => {
     try {
         let connection = await mongoClient.connect(URL);
         let db = connection.db("urlShortner");
-        let user = await db.collection("users").findOne({ email: req.body.email })
+        let user = await db.collection("users").findOne({ email: req.body.email }) 
         //if user is undefined then no user is present
         if (user) {
             let passwordResult = await bcrypt.compare(req.body.password, user.password)
@@ -105,14 +105,13 @@ app.post("/create-url", async (req, res) => {
             shortUrl: generateUrl()
         })
         await connection.close();
-        res.json({ message: "user added" })
+        res.json({ message: "url added" })
     } catch (error) {
         console.log(error)
     }
 })
 
-
-
+//Generating Url
 function generateUrl() {
     var randomUrl = [];
     var characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
